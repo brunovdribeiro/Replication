@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql", "Sql", "{A4AFA320-DD4
 		Docker\Sql\init.sql = Docker\Sql\init.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replication.Console", "Replication.Console\Replication.Console.csproj", "{4350EC47-0686-4462-9C71-7DF30349BB44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{853D07FD-42C9-46D4-BD8B-7A2D80957BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{853D07FD-42C9-46D4-BD8B-7A2D80957BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{853D07FD-42C9-46D4-BD8B-7A2D80957BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4350EC47-0686-4462-9C71-7DF30349BB44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4350EC47-0686-4462-9C71-7DF30349BB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4350EC47-0686-4462-9C71-7DF30349BB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4350EC47-0686-4462-9C71-7DF30349BB44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
