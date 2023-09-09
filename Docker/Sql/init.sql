@@ -1,3 +1,7 @@
+CREATE PUBLICATION replicaPublication FOR ALL TABLES;
+
+SELECT * FROM pg_create_logical_replication_slot('replicaSlot', 'pgoutput');
+
 CREATE TABLE "Author"
 (
     "Id"   UUID PRIMARY KEY,
