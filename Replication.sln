@@ -5,6 +5,16 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replication", "Replication\Replication.csproj", "{853D07FD-42C9-46D4-BD8B-7A2D80957BC7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{851B9103-0562-4253-993D-7A5681B6A206}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\docker-compose.yml = Docker\docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql", "Sql", "{A4AFA320-DD40-4F74-8815-618DAB3EC8DC}"
+	ProjectSection(SolutionItems) = preProject
+		Docker\Sql\init.sql = Docker\Sql\init.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,5 +31,8 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AC4DE644-7604-4704-97A4-791F238AC65D}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A4AFA320-DD40-4F74-8815-618DAB3EC8DC} = {851B9103-0562-4253-993D-7A5681B6A206}
 	EndGlobalSection
 EndGlobal
