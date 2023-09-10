@@ -1,9 +1,5 @@
 CREATE PUBLICATION replica_publication;
 
-ALTER PUBLICATION replica_publication ADD TABLE "Author"("Id");
-
-ALTER PUBLICATION replica_publication ADD TABLE "Book"("Id");
-
 SELECT * FROM pg_create_logical_replication_slot('replica_slot', 'pgoutput');
 
 CREATE TABLE "Author"
@@ -12,12 +8,16 @@ CREATE TABLE "Author"
     "Name" VARCHAR(50) NOT NULL
 );
 
+ALTER PUBLICATION replica_publication ADD TABLE "Author"("Id");
+
 CREATE TABLE "Book"
 (
     "Id"       SERIAL PRIMARY KEY,
     "Name"     VARCHAR(40) UNIQUE NOT NULL,
     "AuthorId" UUID               NOT NULL REFERENCES "Author" ("Id")
 );
+
+ALTER PUBLICATION replica_publication ADD TABLE "Book"("Id");
 
 CREATE USER rep_user WITH PASSWORD 'rep_pwd';
 
