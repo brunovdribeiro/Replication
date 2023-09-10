@@ -12,10 +12,7 @@ public class BookInsertMapping : BaseMapping, IMessageMapper<Tracking>
 
     public async Task<Tracking> Map(PgOutputReplicationMessage message, CancellationToken cancellationToken)
     {
-        if (message is null)
-        {
-            throw new Exception();
-        }
+        if (message is null) throw new Exception();
 
         var insertMessage = message as InsertMessage;
 

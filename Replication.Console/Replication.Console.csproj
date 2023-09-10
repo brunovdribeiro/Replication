@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Replication.Mappers\Replication.Mappers.csproj" />
-      <ProjectReference Include="..\Replication\Replication.csproj" />
+        <ProjectReference Include="..\Replication.Mappers\Replication.Mappers.csproj"/>
+        <ProjectReference Include="..\Replication\Replication.csproj"/>
     </ItemGroup>
 
 </Project>

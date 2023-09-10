@@ -1,6 +1,7 @@
 CREATE PUBLICATION replica_publication;
 
-SELECT * FROM pg_create_logical_replication_slot('replica_slot', 'pgoutput');
+SELECT *
+FROM pg_create_logical_replication_slot('replica_slot', 'pgoutput');
 
 CREATE TABLE "Author"
 (
