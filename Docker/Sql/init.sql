@@ -1,4 +1,6 @@
-CREATE PUBLICATION replica_publication FOR ALL TABLES;
+CREATE PUBLICATION replica_publication;
+ALTER PUBLICATION replica_publication ADD TABLE "Author"("Id");
+ALTER PUBLICATION replica_publication ADD TABLE "Book"("Id");
 
 SELECT * FROM pg_create_logical_replication_slot('replica_slot', 'pgoutput');
 
