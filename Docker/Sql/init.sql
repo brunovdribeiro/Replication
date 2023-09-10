@@ -1,5 +1,7 @@
 CREATE PUBLICATION replica_publication;
+
 ALTER PUBLICATION replica_publication ADD TABLE "Author"("Id");
+
 ALTER PUBLICATION replica_publication ADD TABLE "Book"("Id");
 
 SELECT * FROM pg_create_logical_replication_slot('replica_slot', 'pgoutput');
@@ -18,7 +20,10 @@ CREATE TABLE "Book"
 );
 
 CREATE USER rep_user WITH PASSWORD 'rep_pwd';
+
 ALTER ROLE rep_user WITH REPLICATION;
+
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO rep_user;
+
 GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO rep_user;
 
