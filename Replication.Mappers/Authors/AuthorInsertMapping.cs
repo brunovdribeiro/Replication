@@ -5,7 +5,7 @@ using Replication.Subscriptions.Models;
 
 namespace Replication.Mappers.Authors;
 
-public class AuthorInsertMapping : BaseMapping, IMessageMapper
+public class AuthorInsertMapping : BaseMapping, IMessageMapper<Tracking>
 {
     public string Entity => "Author";
     public MapperType Type => MapperType.InsertMessage;

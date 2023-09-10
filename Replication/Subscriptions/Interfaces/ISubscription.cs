@@ -3,7 +3,7 @@ using Replication.Subscriptions.Settings;
 
 namespace Replication.Subscriptions.Interfaces;
 
-public interface ISubscription
+public interface ISubscription<TResult>
 {
-    IAsyncEnumerable<Task<Tracking>> Subscribe(SubscriptionSettings settings, CancellationToken cancellationToken);
+    IAsyncEnumerable<Task<TResult>> Subscribe(SubscriptionSettings settings, CancellationToken cancellationToken);
 }

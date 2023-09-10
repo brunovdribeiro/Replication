@@ -4,9 +4,9 @@ using Replication.Subscriptions.Models;
 
 namespace Replication.Subscriptions.Mappers;
 
-public interface IMessageMapper
+public interface IMessageMapper<TResult>
 {
     string Entity { get; }
     MapperType Type { get; }
-    Task<Tracking> Map(PgOutputReplicationMessage message, CancellationToken cancellationToken);
+    Task<TResult> Map(PgOutputReplicationMessage message, CancellationToken cancellationToken);
 }

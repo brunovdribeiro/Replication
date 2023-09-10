@@ -12,8 +12,7 @@ public static class ConfigureServices
         string connectionString)
     {
         services.AddSingleton<IReplicationConnection>(new ReplicationConnection(connectionString));
-
-        services.AddScoped<ISubscription, PgOutputSubscription>();
+        services.AddScoped(typeof(ISubscription<>), typeof(PgOutputSubscription<>));
 
         return services;
     }

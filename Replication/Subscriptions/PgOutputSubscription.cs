@@ -9,20 +9,20 @@ using Replication.Subscriptions.Settings;
 
 namespace Replication.Subscriptions;
 
-public class PgOutputSubscription : ISubscription
+public class PgOutputSubscription<TResult> : ISubscription<TResult>
 {
     private readonly IReplicationConnection _replicationConnection;
-    private readonly IEnumerable<IMessageMapper> _mappers;
+    private readonly IEnumerable<IMessageMapper<TResult>> _mappers;
 
     public PgOutputSubscription(
         IReplicationConnection replicationConnection,
-        IEnumerable<IMessageMapper> mappers)
+        IEnumerable<IMessageMapper<TResult>> mappers)
     {
         _replicationConnection = replicationConnection;
         _mappers = mappers;
     }
 
-    public async IAsyncEnumerable<Task<Tracking>> Subscribe(SubscriptionSettings settings, CancellationToken cancellationToken)
+    public async IAsyncEnumerable<Task<TResult>> Subscribe(SubscriptionSettings settings, CancellationToken cancellationToken)
     {
         await _replicationConnection.OpenAsync(cancellationToken);
 

@@ -5,6 +5,7 @@ using Replication.Mappers.Authors;
 using Replication.Mappers.Books;
 using Replication.Subscriptions;
 using Replication.Subscriptions.Mappers;
+using Replication.Subscriptions.Models;
 using Replication.Subscriptions.Settings;
 
 const string connectionString =
@@ -16,13 +17,13 @@ const string publication = "replica_publication";
 var connection = new ReplicationConnection(connectionString);
 var subscriptionSettings = new SubscriptionSettings(slot, publication);
 
-var mappers = new List<IMessageMapper>
+var mappers = new List<IMessageMapper<Tracking>>
 {
     new AuthorInsertMapping(),
     new BookInsertMapping()
 };
 
-var subscription = new PgOutputSubscription(connection, mappers);
+var subscription = new PgOutputSubscription<Tracking>(connection, mappers);
 
 await foreach (var message in subscription.Subscribe(subscriptionSettings, cancellationToken))
 {
