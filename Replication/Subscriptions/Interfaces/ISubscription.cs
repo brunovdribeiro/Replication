@@ -1,4 +1,3 @@
-using Replication.Subscriptions.Models;
 using Replication.Subscriptions.Settings;
 
 namespace Replication.Subscriptions.Interfaces;

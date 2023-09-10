@@ -1,18 +1,16 @@
-using Npgsql.Replication;
 using Npgsql.Replication.PgOutput;
 using Npgsql.Replication.PgOutput.Messages;
 using Replication.Connections;
 using Replication.Subscriptions.Interfaces;
 using Replication.Subscriptions.Mappers;
-using Replication.Subscriptions.Models;
 using Replication.Subscriptions.Settings;
 
 namespace Replication.Subscriptions;
 
 public class PgOutputSubscription<TResult> : ISubscription<TResult>
 {
-    private readonly IReplicationConnection _replicationConnection;
     private readonly IEnumerable<IMessageMapper<TResult>> _mappers;
+    private readonly IReplicationConnection _replicationConnection;
 
     public PgOutputSubscription(
         IReplicationConnection replicationConnection,
@@ -22,7 +20,8 @@ public class PgOutputSubscription<TResult> : ISubscription<TResult>
         _mappers = mappers;
     }
 
-    public async IAsyncEnumerable<Task<TResult>> Subscribe(SubscriptionSettings settings, CancellationToken cancellationToken)
+    public async IAsyncEnumerable<Task<TResult>> Subscribe(SubscriptionSettings settings,
+        CancellationToken cancellationToken)
     {
         await _replicationConnection.OpenAsync(cancellationToken);
 
@@ -55,10 +54,7 @@ public class PgOutputSubscription<TResult> : ISubscription<TResult>
                 mapper.Entity == tableName &&
                 mapper.Type.ToString() == messageType);
 
-            if (mapper is null)
-            {
-                continue;
-            }
+            if (mapper is null) continue;
 
             yield return mapper.Map(message, cancellationToken);
 

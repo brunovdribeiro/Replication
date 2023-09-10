@@ -16,14 +16,18 @@ public class ReplicationConnection : IReplicationConnection
         _connection = new LogicalReplicationConnection(connectionString);
     }
 
-    public async Task OpenAsync(CancellationToken cancellationToken) =>
+    public async Task OpenAsync(CancellationToken cancellationToken)
+    {
         await _connection.Open(cancellationToken);
+    }
 
     public IAsyncEnumerable<PgOutputReplicationMessage> StartAsync(
         PgOutputReplicationSlot slot,
         PgOutputReplicationOptions options,
-        CancellationToken cancellationToken) =>
-        _connection.StartReplication(slot, options, cancellationToken);
+        CancellationToken cancellationToken)
+    {
+        return _connection.StartReplication(slot, options, cancellationToken);
+    }
 
     public void SetReplicationStatus(NpgsqlLogSequenceNumber lastAppliedAndFlushedLsn)
     {

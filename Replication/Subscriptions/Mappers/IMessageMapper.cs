@@ -1,6 +1,5 @@
 using Npgsql.Replication.PgOutput.Messages;
 using Replication.Subscriptions.Mappers.Enuns;
-using Replication.Subscriptions.Models;
 
 namespace Replication.Subscriptions.Mappers;
 
