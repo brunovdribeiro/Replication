@@ -1,8 +1,12 @@
+using Npgsql.Replication.PgOutput.Messages;
+using Replication.Subscriptions.Mappers.Enuns;
+using Replication.Subscriptions.Models;
+
 namespace Replication.Subscriptions.Mappers;
 
-public interface IMessageMapper<TTransaction>
+public interface IMessageMapper
 {
     string Entity { get; }
-    TTransaction Type { get; }
-    Task<object> Map(TTransaction message, CancellationToken cancellationToken);
+    MapperType Type { get; }
+    Task<Tracking> Map(PgOutputReplicationMessage message, CancellationToken cancellationToken);
 }

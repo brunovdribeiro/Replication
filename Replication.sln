@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Replication.Mappers", "Replication.Mappers\Replication.Mappers.csproj", "{01BC9756-89C1-4BC6-BE06-F9BEE29DD4A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{4350EC47-0686-4462-9C71-7DF30349BB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4350EC47-0686-4462-9C71-7DF30349BB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4350EC47-0686-4462-9C71-7DF30349BB44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01BC9756-89C1-4BC6-BE06-F9BEE29DD4A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01BC9756-89C1-4BC6-BE06-F9BEE29DD4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01BC9756-89C1-4BC6-BE06-F9BEE29DD4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01BC9756-89C1-4BC6-BE06-F9BEE29DD4A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 using Npgsql.Replication;
 using Npgsql.Replication.PgOutput;
 using Npgsql.Replication.PgOutput.Messages;
+using NpgsqlTypes;
 
 namespace Replication.Connections;
 
@@ -23,4 +24,14 @@ public class ReplicationConnection : IReplicationConnection
         PgOutputReplicationOptions options,
         CancellationToken cancellationToken) =>
         _connection.StartReplication(slot, options, cancellationToken);
+
+    public void SetReplicationStatus(NpgsqlLogSequenceNumber lastAppliedAndFlushedLsn)
+    {
+        _connection.SetReplicationStatus(lastAppliedAndFlushedLsn);
+    }
+
+    public async Task SendStatusUpdateAsync(CancellationToken cancellationToken)
+    {
+        await _connection.SendStatusUpdate(cancellationToken);
+    }
 }

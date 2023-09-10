@@ -1,6 +1,6 @@
-CREATE PUBLICATION replicaPublication FOR ALL TABLES;
+CREATE PUBLICATION replica_publication FOR ALL TABLES;
 
-SELECT * FROM pg_create_logical_replication_slot('replicaSlot', 'pgoutput');
+SELECT * FROM pg_create_logical_replication_slot('replica_slot', 'pgoutput');
 
 CREATE TABLE "Author"
 (
@@ -15,8 +15,8 @@ CREATE TABLE "Book"
     "AuthorId" UUID               NOT NULL REFERENCES "Author" ("Id")
 );
 
-CREATE USER repUser WITH PASSWORD 'repPwd';
-ALTER ROLE repUser WITH REPLICATION;
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO repUser;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO repUser;
+CREATE USER rep_user WITH PASSWORD 'rep_pwd';
+ALTER ROLE rep_user WITH REPLICATION;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO rep_user;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO rep_user;
 

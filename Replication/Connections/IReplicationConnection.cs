@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Npgsql.Replication.PgOutput;
 using Npgsql.Replication.PgOutput.Messages;
+using NpgsqlTypes;
 
 namespace Replication.Connections
 {
@@ -14,5 +15,9 @@ namespace Replication.Connections
 
         IAsyncEnumerable<PgOutputReplicationMessage> StartAsync(PgOutputReplicationSlot slot,
             PgOutputReplicationOptions options, CancellationToken cancellationToken);
+
+        void SetReplicationStatus(NpgsqlLogSequenceNumber lastAppliedAndFlushedLsn);
+
+        Task SendStatusUpdateAsync(CancellationToken cancellationToken);
     }
 }
